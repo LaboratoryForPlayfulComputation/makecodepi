@@ -1,4 +1,4 @@
-defmodule MakecodepiWeb.PageController do
+defmodule MakecodepiWeb.MakeCodeCode do
   use MakecodepiWeb, :controller
 
   def index(conn, _params) do

@@ -19,6 +19,7 @@ defmodule MakecodepiWeb.Router do
     get "/", PageController, :index
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
+    #get "/makecode", MakeCodeController, :makecode
   end
 
   # Other scopes may use custom stacks.

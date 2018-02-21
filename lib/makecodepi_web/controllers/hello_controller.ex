@@ -10,5 +10,3 @@ defmodule  MakecodepiWeb.HelloController do
   end
   
 end
-
-
