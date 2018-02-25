@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="/./release.manifest" data-framework="typescript">
+<html lang="en" manifest="<%= static_path(@conn, "/js/makecode/release.manifest") %>" data-framework="typescript">
 
 <head>
     <meta charset="utf-8">
@@ -47,11 +47,12 @@
 <!-- end include appmeta.html -->
 
 
-    <link id="blocklycss" rel="stylesheet" data-rtl="/./rtlblockly.css" href="/./blockly.css" type="text/css">
-    <link rel="stylesheet" data-rtl="/./rtlsemantic.css" href="/./semantic.css" type="text/css">
+<link id="blocklycss" rel="stylesheet" data-rtl="<%= static_path(@conn, "/js/makecode/rtlblockly.css") %>" href="<%= static_path(@conn, "/js/makecode/blockly.css") %>" type="text/css">
+
+    <link rel="stylesheet" data-rtl="<%= static_path(@conn, "/js/makecode/rtlsemantic.css") %>" href="<%= static_path(@conn, "/js/makecode/semantic.css") %>" type="text/css">
     <style type="text/css">
-        @import "/./custom.css";
-        @import "/./icons.css";
+        @import "<%= static_path(@conn, "/js/makecode/custom.css") %>";
+        @import ""<%= static_path(@conn, "/js/makecode/icons.css") %>";
     </style>
 </head>
 
@@ -141,16 +142,37 @@
 <!-- end include apptracking.html -->
 
     <!-- patch to load JS in electron -->
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<script src="<%= static_path(@conn, "/js/makecode/jquery.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/makecode/blockly/blockly_compressed.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/makecode/blockly/blocks_compressed.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/makecode/blockly/msg/js/en.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/makecode/smoothie/smoothie_compressed.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/makecode/semantic.js") %>"></script>
+
+<!--old js references pre-phoenix
     <script type="text/javascript" src="/./jquery.js"></script>
     <script type="text/javascript" src="/./blockly/blockly_compressed.js"></script>
     <script type="text/javascript" src="/./blockly/blocks_compressed.js"></script>
     <script type="text/javascript" src="/./blockly/msg/js/en.js"></script>
     <script type="text/javascript" src="/./smoothie/smoothie_compressed.js"></script>
     <script type="text/javascript" src="/./semantic.js"></script>
+-->
     <!-- unpatch to load JS in electron -->
     <script>if (window.module) module = window.module;</script>
 
+
+<script src="<%= static_path(@conn, "/js/makecode/pxtlib.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/makecode/pxtblocks.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/makecode/pxtwinrt.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/makecode/pxteditor.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/makecode/pxtsim.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/makecode/target.js") %>"></script>
+<script id="mainscript" src="<%= static_path(@conn, "/js/makecode/main.js") %>"></script>
+    
+<!--old js references pre-phoenix continued
     <script type="text/javascript" src="/./pxtlib.js"></script>
     <script type="text/javascript" src="/./pxtblocks.js"></script>
     <script type="text/javascript" src="/./pxtwinrt.js"></script>
@@ -158,6 +180,8 @@
     <script type="text/javascript" src="/./pxtsim.js"></script>
     <script type="text/javascript" src="/./target.js"></script>
     <script id="mainscript" type="text/javascript" src="/./main.js"></script>
+-->
+    
     <xml id="blocklyToolboxDefinitionCategory" style="display: none">
         <!-- An empty category is required so that Blockly launches in category mode -->
         <category name="">
